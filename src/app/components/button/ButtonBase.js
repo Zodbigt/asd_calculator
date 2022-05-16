@@ -1,6 +1,6 @@
 import MDButtonBase from "@mui/material/ButtonBase";
 
-export default function InputButton(props) {
+export default function ButtonBase(props) {
     const onClick = props.onClick;
     return (
         <MDButtonBase
