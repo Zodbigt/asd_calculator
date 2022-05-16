@@ -1,11 +1,12 @@
+import InputButton from "./components/button/InputButton";
+import MainInput from "./components/input/MainInput";
+import RootView from "./components/views/RootView";
 
-
-function App() {
-  return (
-    <div className="App">
-      <input />
-    </div>
-  );
+export default function App() {
+    return (
+        <RootView>
+            <MainInput />
+            <InputButton />
+        </RootView>
+    );
 }
-
-export default App;
