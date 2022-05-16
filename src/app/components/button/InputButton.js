@@ -1,3 +1,4 @@
+import Text from "../views/Text";
 import ButtonBase from "./ButtonBase";
 
 export default function InputButton(props) {
@@ -8,13 +9,21 @@ export default function InputButton(props) {
             disabled={props.disabled}
             onClick={() => onClick ? onClick() : console.log("onClick")}
         >
-            {props.label}
+            <Text style={s.lebel}>
+                {props.label}
+            </Text>
         </ButtonBase>
     );
 }
 
 const s = {
     container: {
-        height: 40,
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 100,
     },
+    lebel: {
+        fontSize: 34,
+    }
 };
