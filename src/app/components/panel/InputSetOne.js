@@ -1,36 +1,99 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import View from "../views/View";
 import InputButton from "../button/InputButton";
 
-export default function InputSetOne() {
+export default function InputSetOne(props) {
+    
+    const row1 = useMemo(() => ([
+        { 
+            label: "1",
+            value: "1",
+        },
+        { 
+            label: "2",
+            value: "2",
+        },
+        { 
+            label: "3",
+            value: "3",
+        },
+    ]));
 
+    const row2 = useMemo(() => ([
+        { 
+            label: "4",
+            value: "4",
+        },
+        { 
+            label: "5",
+            value: "5",
+        },
+        { 
+            label: "6",
+            value: "6",
+        },
+    ]));
+
+    const row3 = useMemo(() => ([
+        { 
+            label: "7",
+            value: "7",
+        },
+        { 
+            label: "8",
+            value: "8",
+        },
+        { 
+            label: "9",
+            value: "9",
+        },
+    ]));
+
+
+    const handleOnClick = (value) => {
+        const onClick = props.onClick;
+        if (onClick) {
+            onClick(value);
+        }
+    }
 
     return (
         <View style={s.container}>
-            {renderInputRow()}
-            {renderInputRow()}
-            {renderInputRow()}
+            <InputRow
+                onClick={handleOnClick}
+                buttonInfoList={row3}
+            />
+            <InputRow
+                onClick={handleOnClick}
+                buttonInfoList={row2}
+            />
+            <InputRow
+                onClick={handleOnClick}
+                buttonInfoList={row1}
+            />
         </View>
     );
-}
 
-function renderInputRow() {
-    return (
-        <View style={s.rowContainer}>
+    function InputRow(props) {
+        return (
+            <View style={s.rowContainer}>
+                <ButtonList 
+                    {...props}
+                />
+            </View>
+        );
+    }
+
+    function ButtonList(props) {
+        return props.buttonInfoList.map((buttonInfo) => (
             <InputButton
-                label={"1"}
-            //onClick={() => setInput(input + "1")}
+                key={buttonInfo.label}
+                label={buttonInfo.label}
+                onClick={() => props.onClick(buttonInfo.value)}
             />
-            <InputButton
-                label={"2"}
-            //onClick={() => setInput(input + "2")}
-            />
-            <InputButton
-                label={"3"}
-            //onClick={() => setInput(input + "2")}
-            />
-        </View>
-    );
+        ));
+    }
+
 }
 
 const s = {

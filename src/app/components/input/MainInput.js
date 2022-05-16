@@ -28,7 +28,7 @@ const s = {
     },
     input: {
         height: "100%",
-        fontSize: 50,
+        fontSize: 68,
         color: FONT_BODY_COLOR,
         caretColor: CARET_COLOR,
         backgroundColor: MAIN_INPUT_BACKGROUND_COLOR,
